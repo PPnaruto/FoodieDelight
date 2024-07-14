@@ -28,7 +28,7 @@ const Admin = () => {
       adminCredentials.data[0];
 
     if (adminEmail === formData.email && adminPassword === formData.password) {
-      navigate("/home");
+      navigate("/all-restro");
     } else {
       console.log("Wrong Credentials Baby");
       setShowToast(true);

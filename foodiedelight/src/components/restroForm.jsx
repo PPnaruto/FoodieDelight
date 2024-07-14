@@ -4,12 +4,12 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const AddRestro = () => {
+const AddRestro = ({ restro }) => {
   const [restroData, setRestroData] = useState({
-    restro: "",
-    address: "",
-    contact_no: "",
-    email: "",
+    restro: restro ? restro.restro : "",
+    address: restro ? restro.address : "",
+    contact_no: restro ? restro.contact_no : "",
+    email: restro ? restro.email : "",
   });
   const navigate = useNavigate();
 
@@ -25,10 +25,29 @@ const AddRestro = () => {
     try {
       await axios.post("http://localhost:8080/restaurants", restroData);
       console.log("Data has been added succesfully", restroData);
-      navigate("/home");
+      navigate("/all-restro");
     } catch (err) {
       console.log("Something went Wrong");
     }
+  };
+
+  const handleEdit = async (id) => {
+    try {
+      const dataToEdit = {
+        ...restro,
+        ...restroData,
+      };
+      console.log("Data To Edit:", dataToEdit);
+      await axios.patch(`http://localhost:8080/restaurants/${id}`, dataToEdit);
+      navigate("/all-restro");
+    } catch (err) {
+      console.log("Error", err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    await axios.delete(`http://localhost:8080/restaurants/${id}`);
+    navigate("/all-restro");
   };
   return (
     <div className="form-parent">
@@ -39,6 +58,7 @@ const AddRestro = () => {
             type="text"
             placeholder="Enter Restaurant Name"
             name="restro"
+            defaultValue={restro && restro.restro}
             onChange={handleChange}
           />
           <Form.Text className="text-muted">
@@ -52,6 +72,7 @@ const AddRestro = () => {
             type="text"
             placeholder="Enter Address here"
             name="address"
+            defaultValue={restro && restro.address}
             onChange={handleChange}
           />
         </Form.Group>
@@ -62,6 +83,7 @@ const AddRestro = () => {
             type="number"
             placeholder="Enter Restro contact here"
             name="contact_no"
+            defaultValue={restro && restro.contact_no}
             onChange={handleChange}
           />
         </Form.Group>
@@ -72,15 +94,27 @@ const AddRestro = () => {
             type="text"
             placeholder="Enter Email"
             name="email"
+            defaultValue={restro && restro.email}
             onChange={handleChange}
           />
         </Form.Group>
         {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group> */}
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        {!restro ? (
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        ) : (
+          <div className="button-box">
+            <Button variant="dark" onClick={() => handleEdit(restro.id)}>
+              Edit
+            </Button>
+            <Button variant="warning" onClick={() => handleDelete(restro.id)}>
+              Delete
+            </Button>
+          </div>
+        )}
       </Form>
     </div>
   );
