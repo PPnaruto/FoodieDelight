@@ -1,4 +1,4 @@
-.login-form-parent {
+.form-parent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,11 +6,35 @@
     background-color: #f8f9fa; 
 }
 
-.login-form {
+.form {
     width: 100%;
     max-width: 400px;
     padding: 20px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Navbar {
+    margin-top: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.restro-card-parent {
+    margin-top: 50px;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 10px;
+    width: max-content;
+    height: max-content;
+}
+
+.all-restro-box {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    padding: 16px;
 }

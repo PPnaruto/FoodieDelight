@@ -36,8 +36,8 @@ const Admin = () => {
   };
 
   return (
-    <div className="login-form-parent">
-      <Form className="login-form" onSubmit={handleSubmit}>
+    <div className="form-parent">
+      <Form className="form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control

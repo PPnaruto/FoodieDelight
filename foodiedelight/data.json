@@ -1,15 +1,38 @@
 {
-    "admin-credentials": [
-     {
-        "email": "pratik.patil@thinkbridge.com",
-        "password": "Thinkbridge"
-     }
-    ],
-    "comments": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-      "name": "typicode"
+  "admin-credentials": [
+    {
+      "email": "pratik.patil@thinkbridge.com",
+      "password": "Thinkbridge"
     }
-  }
+  ],
+  "restaurants": [
+    {
+      "id": "d597",
+      "restro": "Marathe-shahi",
+      "address": "DP Road, Hadapsar",
+      "contact_no": "9823052098",
+      "email": "patil99.pratik@gmail.com"
+    },
+    {
+      "id": "599f",
+      "restro": "FML",
+      "address": "NIBM",
+      "contact_no": "9527620574",
+      "email": "patil99.pratik@gmail.com"
+    },
+    {
+      "id": "30c0",
+      "restro": "Mavala",
+      "address": "Hadapsar",
+      "contact_no": "9823052098",
+      "email": "patil99.pratik@gmail.com"
+    },
+    {
+      "id": "814f",
+      "restro": "Flemingo",
+      "address": "Seasons Mall",
+      "contact_no": "9823052032",
+      "email": "patil99.pratik@gmail.com"
+    }
+  ]
+}
