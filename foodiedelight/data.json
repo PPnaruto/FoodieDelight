@@ -17,8 +17,36 @@
     {
       "id": "90da",
       "restro": "Indemix",
-      "address": "Seasons Mall",
+      "address": "Seasons Mall, Hadapsar",
       "contact_no": "9823052038",
+      "email": "patil99.pratik@gmail.com"
+    },
+    {
+      "id": "3969",
+      "restro": "Flemingo",
+      "address": "Amanora Town, Hadapsar",
+      "contact_no": "7898456512",
+      "email": "patil99.pratik@gmail.com"
+    },
+    {
+      "id": "a755",
+      "restro": "Waters",
+      "address": "Koregaon park",
+      "contact_no": "7898455612",
+      "email": "patil99.pratik@gmail.com"
+    },
+    {
+      "id": "123a",
+      "restro": "Durga Cafe",
+      "address": "Hadapsar",
+      "contact_no": "9878456532",
+      "email": "patil99.pratik@gmail.com"
+    },
+    {
+      "id": "8fb1",
+      "restro": "Katakirrrr Misal",
+      "address": "karve-nagar,Pune",
+      "contact_no": "9878456532",
       "email": "patil99.pratik@gmail.com"
     }
   ]

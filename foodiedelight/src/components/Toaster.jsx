@@ -1,7 +1,7 @@
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 
-const Toaster = ({ setShow }) => {
+const Toaster = ({ setShow, errorMsg }) => {
   return (
     <ToastContainer className="p-3" position="top-center" style={{ zIndex: 1 }}>
       <Toast
@@ -15,7 +15,7 @@ const Toaster = ({ setShow }) => {
           <strong className="me-auto">Warning</strong>
         </Toast.Header>
         <Toast.Body className={"Warning" === "Dark" && "text-white"}>
-          Please check the credenatials.
+          {errorMsg ? errorMsg : "Please check the credenatials."}
         </Toast.Body>
       </Toast>
     </ToastContainer>

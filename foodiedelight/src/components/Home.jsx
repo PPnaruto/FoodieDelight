@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import RestroCard from "./restroCard";
 import { RestroContext } from "../context/restroContext";
+import { API } from "../constants/api";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Home = () => {
   const { setRestroById } = useContext(RestroContext);
 
   const getAllRestro = async () => {
-    const allRestro = await axios.get("http://localhost:8080/restaurants");
+    const allRestro = await axios.get(`${API.RESTRO}`);
     console.log("All Restro Data:", allRestro.data);
     setRestros(allRestro.data);
   };
@@ -21,7 +22,7 @@ const Home = () => {
 
   const getRestroById = async (id) => {
     const restroData = await axios.get(
-      `http://localhost:8080/restaurants/${id}`
+      `${API.RESTRO}${id}`
     );
     return restroData.data;
   };

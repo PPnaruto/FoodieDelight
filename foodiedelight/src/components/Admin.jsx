@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Toaster from "./Toaster";
+import { useAuth } from "../context/authContext";
+import { API } from "../constants/api";
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -13,6 +15,7 @@ const Admin = () => {
     password: "",
   });
   const [showToast, setShowToast] = useState(false);
+  const { login } = useAuth();
 
   const handleChange = (event) => {
     console.log("Inside handleChange");
@@ -21,13 +24,13 @@ const Admin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const adminCredentials = await axios.get(
-      "http://localhost:8080/admin-credentials"
-    );
+    console.log("data", formData);
+    const adminCredentials = await axios.get(`${API.ADMIN}`);
     const { email: adminEmail, password: adminPassword } =
       adminCredentials.data[0];
 
     if (adminEmail === formData.email && adminPassword === formData.password) {
+      login();
       navigate("/all-restro");
     } else {
       console.log("Wrong Credentials Baby");

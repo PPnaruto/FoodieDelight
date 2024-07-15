@@ -6,16 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { RestroProvider } from "./context/restroContext";
+import { AuthProvider } from "./context/authContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <RestroProvider>
-        <App />
-      </RestroProvider>
-    </React.StrictMode>
-  </BrowserRouter>
+  <AuthProvider>
+    <BrowserRouter>
+      <React.StrictMode>
+        <RestroProvider>
+          <App />
+        </RestroProvider>
+      </React.StrictMode>
+    </BrowserRouter>
+  </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
